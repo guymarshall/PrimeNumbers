@@ -1,6 +1,6 @@
 ﻿public class PrimeNumbers
 {
-    public static bool IsPrime(int number)
+    public static bool IsPrimeNumber(int number)
     {
         for (int i = 2; i <= Math.Ceiling(Math.Sqrt(number)); i++)
         {
@@ -19,12 +19,26 @@
         int userInput = int.Parse(Console.ReadLine());
         Console.WriteLine("Prime numbers:");
 
-        for (int i = 2; i < userInput; i++)
+        int primeNumberCount = 0;
+        int number = 2;
+        while (primeNumberCount < userInput)
         {
-            if (IsPrime(i))
+            bool isPrime = IsPrimeNumber(number);
+            if (isPrime)
+            {
+                primeNumberCount++;
+                Console.WriteLine($"{primeNumberCount}: {number}");
+            }
+            number++;
+        }
+
+
+        /*for (int i = 2; i < userInput; i++)
+        {
+            if (IsPrimeNumber(i))
             {
                 Console.WriteLine(i);
             }
-        }
+        }*/
     }
 }
